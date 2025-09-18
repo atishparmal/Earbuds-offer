@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earbuds Diwali Mega Offer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body { background-color: #f3f4f6; }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+  <div class="bg-white shadow-lg rounded-2xl p-6 max-w-md text-center">
+
+    <!-- Product Image (Smaller Size) -->
+    <img src="https://i.postimg.cc/P558Br59/images-50.jpg" 
+         alt="Earbuds" class="rounded-xl mb-4 mx-auto w-48">
+
+    <!-- Instruction above payment -->
+    <p class="text-gray-800 font-semibold mb-2">
+      🔹 Grab this offer — Share with <b>5 friends</b> and get your Earbuds delivered at home!<br>
+      🔹 After sharing, pay ₹59 and send screenshot on WhatsApp.
+    </p>
+
+    <!-- Pay ₹59 button with Razorpay Checkout -->
+    <button id="payButton" 
+      class="bg-blue-600 text-white py-3 px-6 rounded-xl hover:bg-blue-700 mb-4">
+      Pay ₹59 Online
+    </button>
+
+    <!-- Share Button with working WhatsApp link -->
+    <a href="https://wa.me/?text=🔥%20Diwali%20Mega%20Offer%20Earbuds%20@%2059%20Rs.%20Free%20Delivery!%20Grab%20this%20offer%20-%20share%20with%205%20friends%20and%20send%20screenshot%20to%20+918766413800" 
+       target="_blank"
+       class="bg-blue-500 text-white py-3 px-6 rounded-xl hover:bg-blue-600 mb-4">
+       Grab This Offer — Share with 5 Friends
+    </a>
+
+    <!-- Free Delivery Info -->
+    <p class="text-yellow-600 font-semibold mb-4">🎉 Free Delivery — No Charges!</p>
+
+    <!-- WhatsApp Address button -->
+    <a href="https://wa.me/918766413800?text=Hi%2C%20I%20have%20shared%20the%20offer%20with%205%20friends%20and%20paid%20₹59.%20Here%20is%20my%20screenshot." 
+       target="_blank"
+       class="bg-green-600 text-white py-3 px-6 rounded-xl hover:bg-green-700 mb-2">
+      Send Screenshot & Details on WhatsApp
+    </a>
+    <p class="text-gray-700 text-sm mb-4">If WhatsApp link doesn’t open, message us at: <a href="https://wa.me/918766413800" class="text-blue-600 font-semibold">+91 87664 13800</a></p>
+
+    <!-- Customer Support Number -->
+    <p class="text-gray-700 mb-4">📞 Customer Support: <a href="tel:+918766413800" class="text-blue-600 font-semibold">+91 87664 13800</a></p>
+
+    <!-- Offer Info -->
+    <h1 class="text-2xl font-bold mt-2 mb-1">🎁 Diwali Mega Offer — Just for You!</h1>
+    <p class="text-gray-700 text-lg">@ ₹59</p>
+
+  </div>
+
+  <script>
+    // Razorpay Checkout Integration
+    document.getElementById("payButton").onclick = function(e){
+      var options = {
+        "key": "YOUR_KEY_ID", // Replace with your Razorpay Key ID
+        "amount": 5900, // ₹59 in paise
+        "currency": "INR",
+        "name": "Diwali Mega Offer",
+        "description": "Earbuds @ ₹59",
+        "handler": function (response){
+            alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+            // Automatically open WhatsApp for screenshot submission
+            window.open("https://wa.me/918766413800?text=Hi%2C%20I%20have%20paid%20₹59.%20Here%20is%20my%20screenshot.", "_blank");
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+      };
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+      e.preventDefault();
+    }
+  </script>
+
+</body>
+</html>
